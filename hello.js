@@ -40,42 +40,40 @@
 // console.log(diagonal);
 
 //Solution 1
-let vowels = ["a", "e", "i", "o", "u"];
-let words = ["Celebration", "Rocket", "Prediction", "Thin"];
-
-for (let i = 0; i < words.length; i++) {
-  let count = 0;
-  for (let j = 0; j < words[i].length; j++) {
-    if (!vowels.includes(words[i][j])) {
-      count += 1;
-    }
-  }
-  console.log(count);
-}
-
-//Another Solution
-
-// let words = ["Celebration", "Rocket", "Prediction", "Thin"];
 // let vowels = ["a", "e", "i", "o", "u"];
+// let words = ["Celebration", "Rocket", "Prediction", "Thin"];
 
-// let consonants = words.map((word) => {
+// for (let i = 0; i < words.length; i++) {
 //   let count = 0;
-//   for (let letter of word) {
-//     if (!vowels.includes(letter)) {
+//   for (let j = 0; j < words[i].length; j++) {
+//     if (!vowels.includes(words[i][j])) {
 //       count += 1;
 //     }
 //   }
-//   return count;
-// });
-// console.log(consonants);
+//   console.log(count);
+// }
 
-// # 3 Hacker speak
+// //Another Solution
 
-let str = "javascript is cool";
-let splits = str.split("");
-let length = splits.length;
+// // let words = ["Celebration", "Rocket", "Prediction", "Thin"];
+// // let vowels = ["a", "e", "i", "o", "u"];
 
-// <<====  Else if METHOD : ===>>>>>
+// // let consonants = words.map((word) => {
+// //   let count = 0;
+// //   for (let letter of word) {
+// //     if (!vowels.includes(letter)) {
+// //       count += 1;
+// //     }
+// //   }
+// //   return count;
+// // });
+// // console.log(consonants);
+
+// // # 3 Hacker speak
+
+// let str = "javascript is cool";
+// let splits = str.split("");
+// let length = splits.length;
 
 // for (let i = 0; i < length; i++) {
 //   if (splits[i] == "a") {
@@ -97,31 +95,31 @@ let length = splits.length;
 // let codedStr = splits.join("");
 // console.log(codedStr);
 
-// <<====  Switch case METHOD: ===>>>>>
+// // <<====  Switch case METHOD: ===>>>>>
 
-for (let i = 0; i < splits.length; i++) {
-  switch (str[i]) {
-    case "a":
-      splits[i] = 4;
-      break;
-    case "e":
-      splits[i] = 3;
-      break;
-    case "i":
-      splits[i] = 1;
-      break;
-    case "o":
-      splits[i] = 0;
-      break;
-    case "s":
-      splits[i] = 5;
-      break;
-    default:
-      break;
-  }
-}
-let codedStr = splits.join("");
-console.log(codedStr);
+// for (let i = 0; i < splits.length; i++) {
+//   switch (str[i]) {
+//     case "a":
+//       splits[i] = 4;
+//       break;
+//     case "e":
+//       splits[i] = 3;
+//       break;
+//     case "i":
+//       splits[i] = 1;
+//       break;
+//     case "o":
+//       splits[i] = 0;
+//       break;
+//     case "s":
+//       splits[i] = 5;
+//       break;
+//     default:
+//       break;
+//   }
+// }
+// let codedStr = splits.join("");
+// console.log(codedStr);
 
 // <<====  Replace with RegExp METHOD : ===>>>>>
 
@@ -141,24 +139,78 @@ console.log(codedStr);
 // }
 // hello(1, 2, 3);
 
-var numbers = [1, 2, 3, 4, 5];
-var total = 0;
-let i = 0;
-function averageValue(numbers) {
-  var averageValue = 0;
-  if (numbers.length > 0) {
-    for (i = 0; i < numbers.length; i++) {
-      total += numbers[i];
-    }
-    averageValue = total / numbers.length;
-  }
-  return averageValue;
-}
-var average = averageValue(numbers);
-console.log(i);
+// var numbers = [1, 2, 3, 4, 5];
+// var total = 0;
+// let i = 0;
+// function averageValue(numbers) {
+//   var averageValue = 0;
+//   if (numbers.length > 0) {
+//     for (i = 0; i < numbers.length; i++) {
+//       total += numbers[i];
+//     }
+//     averageValue = total / numbers.length;
+//   }
+//   return averageValue;
+// }
+// var average = averageValue(numbers);
+// console.log(i);
 
-var text = "metaprogramming";
-var text1 = text.slice(4, 7);
-console.log(text1);
-var sum = 0.1 + 0.7;
-console.log(sum);
+// var text = "metaprogramming";
+// var text1 = text.slice(4, 7);
+// console.log(text1);
+// var sum = 0.1 + 0.7;
+// console.log(sum);
+
+const todos = [
+  {
+    userId: 1,
+    id: 1,
+    title: "delectus aut autem",
+    completed: false,
+  },
+  {
+    userId: 1,
+    id: 2,
+    title: "quis ut nam facilis et officia qui",
+    completed: false,
+  },
+  {
+    userId: 1,
+    id: 3,
+    title: "fugiat veniam minus",
+    completed: false,
+  },
+  {
+    userId: 1,
+    id: 4,
+    title: "et porro tempora",
+    completed: true,
+  },
+  {
+    userId: 1,
+    id: 5,
+    title: "laboriosam mollitia et enim quasi adipisci quia provident illum",
+    completed: false,
+  },
+  {
+    userId: 1,
+    id: 6,
+    title: "qui ullam ratione quibusdam voluptatem quia omnis",
+    completed: false,
+  },
+];
+const openTodos = [];
+const completedTodos = [];
+
+for (let i = 0; i < todos.length; i++) {
+  const todo = todos[i];
+  console.log(todo);
+  if (todo.completed) {
+    completedTodos.push(todo);
+  } else {
+    openTodos.push(todo);
+  }
+}
+console.log("Opened tasks are: ", openTodos.length);
+console.log("\n");
+console.log("Done tasks are: ", completedTodos.length);
