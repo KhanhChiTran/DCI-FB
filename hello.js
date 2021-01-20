@@ -240,86 +240,86 @@
 // }
 
 //2
-let myObject = {};
-let counter = 0;
-for (let prop in myObject) {
-  if (myObject.hasOwnProperty(prop)) {
-    counter++;
-  }
-}
-counter == 0 ? console.log(true) : console.log(false);
+// let myObject = {};
+// let counter = 0;
+// for (let prop in myObject) {
+//   if (myObject.hasOwnProperty(prop)) {
+//     counter++;
+//   }
+// }
+// counter == 0 ? console.log(true) : console.log(false);
 
-//Object.keys(myObject).length == 0 ? console.log(true) : console.log(false);
-// Object.values(myObject).length == 0 ? console.log(true) : console.log(false);
-//3
+// //Object.keys(myObject).length == 0 ? console.log(true) : console.log(false);
+// // Object.values(myObject).length == 0 ? console.log(true) : console.log(false);
+// //3
 
-let obj = {
-  id: 15,
-  firstName: "Liana",
-  lastName: "Gleason",
-  courses: ["6.945", "6.814", "1.012", "6.813", "2.159J", "15.S50"],
-};
+// let obj = {
+//   id: 15,
+//   firstName: "Liana",
+//   lastName: "Gleason",
+//   courses: ["6.945", "6.814", "1.012", "6.813", "2.159J", "15.S50"],
+// };
 
-console.log(Object.values(obj));
-console.log(Object.keys(obj));
+// console.log(Object.values(obj));
+// console.log(Object.keys(obj));
 
-//# 4 Props count
-const obj1 = {
-  name: "Jane",
-  age: 21,
-  isEnrolled: true,
-  courses: [],
-  address: {
-    street: "Boddinstr",
-    houseNumber: 21,
-    city: "Berlin",
-  },
-  grades: [],
-};
-const obj2 = {
-  price: 1222,
-  categories: [
-    {
-      id: 32,
-      slug: "clothing",
-      label: "Apparel",
-    },
-  ],
-};
-const obj3 = {
-  title: "",
-  author: "",
-  createdAt: "",
-  dateLastUpdated: "",
-  isApproved: false,
-};
-const obj4 = {
-  albumId: 1,
-  id: 26,
-  title: "asperiores nobis voluptate qui",
-  url: "https://via.placeholder.com/600/474645",
-  thumbnailUrl: "https://via.placeholder.com/150/474645",
-};
-const obj5 = {
-  postId: 1,
-  id: 1,
-  userId: 1,
-  name: "id labore ex et quam laborum",
-  email: "Eliseo@gardner.biz",
-  title: "quidem molestiae enim",
-  body:
-    "laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus dolor quam autem quasi reiciendis et nam sapiente accusantium",
-};
-let newArr = [obj1, obj2, obj3, obj4, obj5];
-let count = [];
-for (let obj of newArr) {
-  let n = Object.keys(obj).length;
-  count.push(n);
-}
-let maxN = Math.max(...count);
-let index = count.indexOf(maxN);
-console.log(newArr[index]);
-console.log(maxN);
+// //# 4 Props count
+// const obj1 = {
+//   name: "Jane",
+//   age: 21,
+//   isEnrolled: true,
+//   courses: [],
+//   address: {
+//     street: "Boddinstr",
+//     houseNumber: 21,
+//     city: "Berlin",
+//   },
+//   grades: [],
+// };
+// const obj2 = {
+//   price: 1222,
+//   categories: [
+//     {
+//       id: 32,
+//       slug: "clothing",
+//       label: "Apparel",
+//     },
+//   ],
+// };
+// const obj3 = {
+//   title: "",
+//   author: "",
+//   createdAt: "",
+//   dateLastUpdated: "",
+//   isApproved: false,
+// };
+// const obj4 = {
+//   albumId: 1,
+//   id: 26,
+//   title: "asperiores nobis voluptate qui",
+//   url: "https://via.placeholder.com/600/474645",
+//   thumbnailUrl: "https://via.placeholder.com/150/474645",
+// };
+// const obj5 = {
+//   postId: 1,
+//   id: 1,
+//   userId: 1,
+//   name: "id labore ex et quam laborum",
+//   email: "Eliseo@gardner.biz",
+//   title: "quidem molestiae enim",
+//   body:
+//     "laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus dolor quam autem quasi reiciendis et nam sapiente accusantium",
+// };
+// let newArr = [obj1, obj2, obj3, obj4, obj5];
+// let count = [];
+// for (let obj of newArr) {
+//   let n = Object.keys(obj).length;
+//   count.push(n);
+// }
+// let maxN = Math.max(...count);
+// let index = count.indexOf(maxN);
+// console.log(newArr[index]);
+// console.log(maxN);
 // let tempMax = 0;
 // for (let number of count) {
 //   if (number > tempMax) {
@@ -331,22 +331,319 @@ console.log(maxN);
 // let index = count.indexOf(tempMax);
 // console.log(newArr[index]);
 
-const allObj = [obj1, obj2, obj3, obj4, obj5];
-let highestNumber = 0;
-let objMostProps = null;
-// for each object count the properties, and then check if it's higher than the highest number
-// if highest, update to highest number or skip
-for (let item of allObj) {
-  let counter = 0;
-  for (let prop in item) {
-    if (item.hasOwnProperty(prop)) {
-      counter++;
+// const allObj = [obj1, obj2, obj3, obj4, obj5];
+// let highestNumber = 0;
+// let objMostProps = null;
+// // for each object count the properties, and then check if it's higher than the highest number
+// // if highest, update to highest number or skip
+// for (let item of allObj) {
+//   let counter = 0;
+//   for (let prop in item) {
+//     if (item.hasOwnProperty(prop)) {
+//       counter++;
+//     }
+//   }
+//   if (highestNumber < counter) {
+//     highestNumber = counter;
+//     objMostProps = item;
+//     // console.log()
+//   }
+// }
+// console.log(highestNumber, objMostProps);
+
+// const secondInteger = 4.32;
+
+// const floatingSum = secondInteger + parseInt(secondInteger);
+// console.log(`${floatingSum}`);
+
+// function isPositive(a) {
+//   if (a > 0) {
+//     return "YES";
+//   } else if (a == 0) {
+//     return "Zero Error";
+//   } else {
+//     return "Negative Error";
+//   }
+// }
+
+// function isValidPassword(password, username) {
+//   if (
+//     password.length >= 8 &&
+//     password.indexOf(" ") == -1 &&
+//     !password.includes(username)
+//   ) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+// console.log(isValidPassword("dogLuvr123!", "dogLuvr"));
+
+// //# Find the Average
+// function avg(arr) {
+//   let sum = 0;
+//   for (let number of arr) {
+//     sum += number;
+//   }
+//   return sum / arr.length;
+// }
+// console.log(avg([75, 76, 80, 95, 100]));
+
+//
+//# Pangram Exercise
+// function isPangram1(str) {
+//   const alphabet = "abcdefghijklmnopqrstuvwxyz";
+//   const lower = str.toLowerCase();
+//   for (let letter of alphabet) {
+//     if (lower.indexOf(letter) == -1) return false;
+//   }
+//   return true;
+// }
+// console.log(isPangram1("The five boxing wizards jump quickly"));
+
+// //Get Card
+// values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+// suits = ["clubs", "spades", "hearts", "diamonds"];
+// function getCard() {
+//   let index = Math.floor(Math.random() * values.length);
+//   let index2 = Math.floor(Math.random() * suits.length);
+//   let pickedCard = {
+//     value: values[index],
+//     suit: suits[index2],
+//   };
+//   return pickedCard;
+// }
+// console.log(getCard());
+
+// function descendingOrder(n) {
+//   return (newArr = n
+//     .toString()
+//     .split("")
+//     .sort((a, b) => b - a)).join("");
+// }
+// console.log(descendingOrder(1234567));
+
+// function isIsogram(str) {
+//   let newStr = str.toLowerCase();
+
+//   for (let letter of newStr) {
+//     console.log(newStr.lastIndexOf(letter));
+//     if (newStr.indexOf(letter) !== newStr.lastIndexOf(letter)) {
+//       return false;
+//     }
+//
+//   }
+//  return true;
+// }
+
+//1
+function myName() {
+  let fullName = "Nic Cage";
+  console.log(fullName);
+}
+myName();
+//2
+let favouriteFoods = ["pizza", "ice cream", "donut", "hamburger"];
+function randomIndex(arr) {
+  return Math.floor(Math.random() * arr.length);
+}
+function randomFood() {
+  return favouriteFoods[randomIndex(favouriteFoods)];
+}
+console.log(randomFood());
+//3
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// function displayOddNumbers() {
+//   for (number of numbers) {
+//     if (number % 2 !== 0) {
+//       console.log(number);
+//     }
+//   }
+// }
+// displayEvenNumbers();
+//4
+
+// function displayEvenNumbers() {
+//   for (number of numbers) {
+//     if (number % 2 == 0) {
+//       console.log(number);
+//     }
+//   }
+// }
+// displayEvenNumbers();
+//5
+// function returnFirstOddNumber() {
+//   for (number of numbers) {
+//     if (number % 2 !== 0) {
+//       console.log(number);
+//       break;
+//     }
+//   }
+// }
+// returnFirstOddNumber();
+//6
+function returnFirstEvenNumber() {
+  for (number of numbers) {
+    if (number % 2 == 0) {
+      return number;
     }
   }
-  if (highestNumber < counter) {
-    highestNumber = counter;
-    objMostProps = item;
-    // console.log()
+}
+console.log(returnFirstEvenNumber());
+//7
+function returnFirstHalf(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n / 2; i++) {
+    console.log(arr[i]);
   }
 }
-console.log(highestNumber, objMostProps);
+returnFirstHalf(numbers);
+//
+function returnSecondHalf(arr) {
+  let n = arr.length;
+  for (let i = n / 2; i < n; i++) {
+    console.log(arr[i]);
+  }
+}
+returnSecondHalf(numbers);
+
+//Functions - Parameters & Scope
+//1
+function add(x, y) {
+  return x + y;
+}
+function subtract(x, y) {
+  return x - y;
+}
+function multiply(x, y) {
+  return x * y;
+}
+function divide(x, y) {
+  return x / y;
+}
+//2
+let myFirstName = "Chi";
+function sayHello(str) {
+  if (str == myFirstName) {
+    console.log("Hello Boss");
+  } else {
+    console.log(`Hello ${str}`);
+  }
+}
+sayHello(myFirstName);
+sayHello("Anna");
+//3
+function average(arr) {
+  let sum = 0;
+  for (let num of arr) {
+    sum += num;
+  }
+  console.log(sum / arr.length);
+}
+average([1, 2, 3, 4, 5, 6]);
+//4
+// function createStudent(str1, str2) {
+//   let studentName = {
+//     firstname: str1,
+//     lastName: str2,
+//   };
+//   return studentName;
+// }
+// let nic = createStudent("Nic", "Cage");
+// let steven = createStudent("Steven", "Segal");
+// let maria = createStudent("Mariah", "Carey");
+// let students = [nic, steven, maria];
+// console.log(students);
+//5
+let students = ["Tim", "Elie", "Janet", "Matt"];
+function findStudentByFirstName(name) {
+  for (let student of students) {
+    let newName = name.toLowerCase();
+    let newStudentname = student.toLowerCase();
+    if (newName == newStudentname) {
+      return true;
+    }
+  }
+  return false;
+}
+console.log(findStudentByFirstName("janet"));
+
+//6 : count Even and Odd
+function countEvensAndOdds(arr) {
+  let even = 0;
+  let odd = 0;
+  for (let number of arr) {
+    number % 2 == 0 ? even++ : odd++;
+  }
+  let count = {
+    oddCount: odd,
+    evenCount: even,
+  };
+  return count;
+}
+console.log(countEvensAndOdds([1, 2, 3, 4]));
+console.log(countEvensAndOdds([1, 2, 3, 4, 5, 6, 7]));
+//7 - Write a function called extractEveryThird which accepts an array as a parameter. The function should iterate over the array and return a new array with every 3rd element in the array passed to the function.
+function extractEveryThird(arr, num) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if ((i + 1) % num === 0) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+console.log(extractEveryThird([1, 2, 3, 4, 5, 6], 3));
+
+//8**bonus**Write a function called onlyCapitalLetters which accepts a string and returns a new string with only the capital letters passed to the string
+function onlyCapitalLetters(str) {
+  for (let letter of str) {
+    let capStr = str.toUpperCase();
+    capStr.includes(letter) ? console.log(letter) : "";
+  }
+}
+
+onlyCapitalLetters("DCI");
+
+//
+//## printDay
+// this function takes in one parameter (a number from 1-7) and returns the day of the week (1 is Sunday, 2 is Monday, 3 is Tuesday etc.). If the number is less than 1 or greater than 7, the function should return undefined
+let weekDay = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+function getWeekDay(num) {
+  let getDay = null;
+  if (num > 0 && num <= 7) {
+    getDay = weekDay[num - 1];
+  } else {
+    getDay = undefined;
+  }
+  return getDay;
+}
+console.log(getWeekDay(4));
+
+//## lastElement
+//this function takes in one parameter (an array) and returns the last value in the array. It should return undefined if the array is empty
+function lastElement(arr) {
+  let n = arr.length;
+  if (n === 0) {
+    return undefined;
+  } else {
+    console.log(arr[arr.length - 1]);
+  }
+}
+lastElement([1, 2, 3, 4]);
+//## number Compare
+​//this function takes in two parameters (both numbers). If the first is greater than the second, this function returns "First is greater". If the second number is greater than the first, the function returns "Second is greater". Otherwise the function returns "Numbers are equal"
+
+function compare(x, y) {
+  let result = x - y;
+  
+
+}
