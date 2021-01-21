@@ -608,42 +608,85 @@ onlyCapitalLetters("DCI");
 //
 //## printDay
 // this function takes in one parameter (a number from 1-7) and returns the day of the week (1 is Sunday, 2 is Monday, 3 is Tuesday etc.). If the number is less than 1 or greater than 7, the function should return undefined
-let weekDay = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-function getWeekDay(num) {
-  let getDay = null;
-  if (num > 0 && num <= 7) {
-    getDay = weekDay[num - 1];
-  } else {
-    getDay = undefined;
-  }
-  return getDay;
-}
-console.log(getWeekDay(4));
+// let weekDay = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+// ];
+// function getWeekDay(num) {
+//   let getDay = null;
+//   if (num > 0 && num <= 7) {
+//     getDay = weekDay[num - 1];
+//   } else {
+//     getDay = undefined;
+//   }
+//   return getDay;
+// }
+// console.log(getWeekDay(4));
 
-//## lastElement
-//this function takes in one parameter (an array) and returns the last value in the array. It should return undefined if the array is empty
-function lastElement(arr) {
-  let n = arr.length;
-  if (n === 0) {
-    return undefined;
-  } else {
-    console.log(arr[arr.length - 1]);
-  }
-}
-lastElement([1, 2, 3, 4]);
+// //## lastElement
+// //this function takes in one parameter (an array) and returns the last value in the array. It should return undefined if the array is empty
+// function lastElement(arr) {
+//   let n = arr.length;
+//   if (n === 0) {
+//     return undefined;
+//   } else {
+//     console.log(arr[arr.length - 1]);
+//   }
+// }
+// lastElement([1, 2, 3, 4]);
 //## number Compare
-​//this function takes in two parameters (both numbers). If the first is greater than the second, this function returns "First is greater". If the second number is greater than the first, the function returns "Second is greater". Otherwise the function returns "Numbers are equal"
 
-function compare(x, y) {
-  let result = x - y;
-  
+// let count = 0;
+// function persistence(num) {
+//   if (num < 10) {
+//     return count;
+//   } else {
+//     count++;
+//     let x = num
+//       .toString()
+//       .split("")
+//       .reduce((a, b) => parseInt(a) * parseInt(b), 1);
+//     return persistence(x);
+//   }
+// }
 
+// console.log(persistence(2));
+function hello() {
+  let n = 10;
+  while (n > 0) {
+    n--;
+    console.log(`this is number ${n}`);
+  }
+}
+hello();
+const x32 = "234".split("").reduce((a, b) => a * b);
+console.log(x32);
+const xo1 = "";
+console.log(typeof "6");
+
+function getMiddle(s) {
+  // console.log(s.length);
+  // let n = s.length - 1;
+  // return n % 2 === 0
+  //   ? s[(s.length - 1) / 2]
+  //   : s[s.length / 2] + s[s.length / 2 + 1];
+  console.log("hi");
+}
+
+const str = "This is a string";
+const strArr = str.split(" ").join("-");
+
+console.log(strArr);
+
+const x = ["a", "b"];
+const y = "c";
+if (x.includes(y)) {
+  console.log("yes");
+} else {
+  console.log("no");
 }
