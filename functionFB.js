@@ -73,3 +73,35 @@ console.log(strContainingNumbers(["1a", "a", "2b", "b"]));
 console.log(strContainingNumbers(["this is a test", "test1"]));
 console.log(strContainingNumbers(["1", "a", " ", "b"]));
 console.log(strContainingNumbers(["rct", "ABC", "Test", "xYz"]));
+
+//Create a function that takes any nonnegative number as an argument and return it with it's digits in descending order. Descending order is when you sort from highest to lowest
+function sortDescending(num) {
+  let arr = num
+    .toString()
+    .split("")
+    .sort((a, b) => b - a)
+    .join("");
+  return Number(arr);
+}
+
+//Create a function that takes a string and returns a string with its letters in alphabetical order
+function AlphabetSoup(str) {
+  return str.split("").sort().join("");
+}
+//Write a function that removes any non-letters from a string, returning a well-known film title.
+function lettersOnly(str) {
+  let alphabet = "abcdefgjhijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  return str
+    .split("")
+    .filter((x) => alphabet.includes(x))
+    .join("");
+}
+//Given a string, create a function to reverse the case. All lower-cased letters should be upper-cased, and vice versa
+function reverseCase(str) {
+  const newArr = str.split("");
+  return newArr
+    .map((word) =>
+      word === word.toUpperCase() ? word.toLowerCase() : word.toUpperCase()
+    )
+    .join("");
+}
