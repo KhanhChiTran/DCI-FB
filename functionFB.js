@@ -105,3 +105,56 @@ function reverseCase(str) {
     )
     .join("");
 }
+//Write a function that takes a credit card number and only displays the last four characters. The rest of the card number must be replaced by ************
+function cardHide(card) {
+  let n = card.length;
+  let fourNumbers = card.slice(n - 4);
+  return "*".repeat(n - 4).concat(fourNumbers);
+}
+//<<<<Solution 2>>>>>
+
+function cardHide(card) {
+ 	card = card.split('');
+	for (let i = 0; i < card.length - 4; i++) {
+		card[i] = "*";
+	}
+	return card.join('');
+
+  //You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
+
+//If you can't find Nemo, return "I can't find Nemo :(".
+function findNemo(sentence) {
+	sentence1 = sentence.split(' ')
+		if(sentence1.includes('Nemo')){
+			return (`I found Nemo at ${sentence1.indexOf('Nemo') + 1}!`) 
+		
+	}
+		return  "I can't find Nemo :("
+}
+//<<<<< Ternary Operator>>>>>
+function findNemo(sentence) {
+	sentence1 = sentence.split(' ')
+	return	sentence1.includes('Nemo')? (`I found Nemo at ${sentence1.indexOf('Nemo') + 1}!`) : "I can't find Nemo :("
+		 
+}
+
+//Create a function that takes a string and returns the middle character(s). If the word's length is odd, return the middle character. If the word's length is even, return the middle two characters
+function getMiddle(str) {
+	let n = str.length
+	return n % 2 !== 0?(`${str[(n -1) / 2]}`):(`${str[n / 2 - 1]}${str[n / 2]}`)
+}
+
+//Given a string, reverse all the words which have odd length. The even length words are not changed.
+
+// Examples
+// reverseOdd("Bananas") ➞ "sananaB"
+
+// reverseOdd("One two three four") ➞ "enO owt eerht four"
+
+// reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+// ➞ "Make sure you only reverse words of odd length"
+function reverseOdd(str) {
+	let newStr = str.split(' ').map((word) => word.length % 2 !== 0? word.split('').reverse().join(''):word).join(' ')
+	
+	return newStr
+	}
