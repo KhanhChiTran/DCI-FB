@@ -114,68 +114,127 @@ function cardHide(card) {
 //<<<<Solution 2>>>>>
 
 function cardHide(card) {
- 	card = card.split('');
-	for (let i = 0; i < card.length - 4; i++) {
-		card[i] = "*";
-	}
-	return card.join('');
+  card = card.split("");
+  for (let i = 0; i < card.length - 4; i++) {
+    card[i] = "*";
+  }
+  return card.join("");
 
   //You're given a string of words. You need to find the word "Nemo", and return a string like this: "I found Nemo at [the order of the word you find nemo]!".
 
-//If you can't find Nemo, return "I can't find Nemo :(".
-function findNemo(sentence) {
-	sentence1 = sentence.split(' ')
-		if(sentence1.includes('Nemo')){
-			return (`I found Nemo at ${sentence1.indexOf('Nemo') + 1}!`) 
-		
-	}
-		return  "I can't find Nemo :("
+  //If you can't find Nemo, return "I can't find Nemo :(".
+  function findNemo(sentence) {
+    sentence1 = sentence.split(" ");
+    if (sentence1.includes("Nemo")) {
+      return `I found Nemo at ${sentence1.indexOf("Nemo") + 1}!`;
+    }
+    return "I can't find Nemo :(";
+  }
+  //<<<<< Ternary Operator>>>>>
+  function findNemo(sentence) {
+    sentence1 = sentence.split(" ");
+    return sentence1.includes("Nemo")
+      ? `I found Nemo at ${sentence1.indexOf("Nemo") + 1}!`
+      : "I can't find Nemo :(";
+  }
+
+  //Create a function that takes a string and returns the middle character(s). If the word's length is odd, return the middle character. If the word's length is even, return the middle two characters
+  function getMiddle(str) {
+    let n = str.length;
+    return n % 2 !== 0
+      ? `${str[(n - 1) / 2]}`
+      : `${str[n / 2 - 1]}${str[n / 2]}`;
+  }
+
+  //Given a string, reverse all the words which have odd length. The even length words are not changed.
+
+  // Examples
+  // reverseOdd("Bananas") ➞ "sananaB"
+
+  // reverseOdd("One two three four") ➞ "enO owt eerht four"
+
+  // reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+  // ➞ "Make sure you only reverse words of odd length"
+  function reverseOdd(str) {
+    let newStr = str
+      .split(" ")
+      .map((word) =>
+        word.length % 2 !== 0 ? word.split("").reverse().join("") : word
+      )
+      .join(" ");
+
+    return newStr;
+  }
+
+  //Write a function that takes a string and returns a string with the correct case for character titles in the Game of Thrones series.
+
+  // The words and, the, of and in should be lowercase.
+  // All other words should have the first character as uppercase and the rest lowercase.
+  // Examples
+  // correctTitle("jOn SnoW, kINg IN thE noRth.")
+  // ➞ "Jon Snow, King in the North."
+
+  // correctTitle("sansa stark, lady of winterfell.")
+  // ➞ "Sansa Stark, Lady of Winterfell."
+
+  // correctTitle("TYRION LANNISTER, HAND OF THE QUEEN.")
+  // ➞ "Tyrion Lannister, Hand of the Queen."
+  function correctTitle(str) {
+    let isLowerCase = ["and", "of", "in", "the"];
+    let correctedStr = str
+      .toLowerCase()
+      .split(" ")
+      .map((word) =>
+        !isLowerCase.includes(word)
+          ? word[0].toUpperCase().concat(word.slice(1))
+          : word
+      )
+      .join(" ");
+  }
+  return correctedStr;
 }
-//<<<<< Ternary Operator>>>>>
-function findNemo(sentence) {
-	sentence1 = sentence.split(' ')
-	return	sentence1.includes('Nemo')? (`I found Nemo at ${sentence1.indexOf('Nemo') + 1}!`) : "I can't find Nemo :("
-		 
+//https://www.codewars.com/kata/5287e858c6b5a9678200083c
+//A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+
+// For example, take 153 (3 digits), which is narcisstic:
+
+//     1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+// and 1652 (4 digits), which isn't:
+
+//     1^4 + 6^4 + 5^4 + 2^4 = 1 + 1296 + 625 + 16 = 1938
+// The Challenge:
+
+// Your code must return true or false depending upon whether the given number is a Narcissistic number in base 10.
+
+function narcissistic(value) {
+  // Code me to return true or false
+  let newValue = value.toString().split("");
+  let power = newValue.length;
+  let result = 0;
+  for (let i = 0; i < power; i++) {
+    result += Math.pow(Number(newValue[i]), power);
+  }
+  return result === value;
 }
 
-//Create a function that takes a string and returns the middle character(s). If the word's length is odd, return the middle character. If the word's length is even, return the middle two characters
-function getMiddle(str) {
-	let n = str.length
-	return n % 2 !== 0?(`${str[(n -1) / 2]}`):(`${str[n / 2 - 1]}${str[n / 2]}`)
+//https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/javascript
+// Count the number of Duplicates
+// Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+// Example
+// "abcde" -> 0 # no characters repeats more than once
+// "aabbcde" -> 2 # 'a' and 'b'
+// "aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+// "indivisibility" -> 1 # 'i' occurs six times
+// "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+// "aA11" -> 2 # 'a' and '1'
+// "ABBA" -> 2 # 'A' and 'B' each occur twice
+function duplicateCount(text) {
+  let newText = text.toLowerCase().split("");
+  let dupli = [];
+  let remain = [];
+  let result = [];
+  newText.forEach((x) => (!dupli.includes(x) ? dupli.push(x) : remain.push(x)));
+  remain.forEach((x) => (!result.includes(x) ? result.push(x) : x));
+  return result.length;
 }
-
-//Given a string, reverse all the words which have odd length. The even length words are not changed.
-
-// Examples
-// reverseOdd("Bananas") ➞ "sananaB"
-
-// reverseOdd("One two three four") ➞ "enO owt eerht four"
-
-// reverseOdd("Make sure uoy only esrever sdrow of ddo length")
-// ➞ "Make sure you only reverse words of odd length"
-function reverseOdd(str) {
-	let newStr = str.split(' ').map((word) => word.length % 2 !== 0? word.split('').reverse().join(''):word).join(' ')
-	
-	return newStr
-}
-  
-//Write a function that takes a string and returns a string with the correct case for character titles in the Game of Thrones series.
-
-// The words and, the, of and in should be lowercase.
-// All other words should have the first character as uppercase and the rest lowercase.
-// Examples
-// correctTitle("jOn SnoW, kINg IN thE noRth.")
-// ➞ "Jon Snow, King in the North."
-
-// correctTitle("sansa stark, lady of winterfell.")
-// ➞ "Sansa Stark, Lady of Winterfell."
-
-// correctTitle("TYRION LANNISTER, HAND OF THE QUEEN.")
-// ➞ "Tyrion Lannister, Hand of the Queen."
-function correctTitle(str) {
-	let isLowerCase = ['and','of','in','the']
-	let correctedStr = str.toLowerCase().split(' ').map((word)=>
-										!isLowerCase.includes(word)?
-										word[0].toUpperCase().concat(word.slice(1)):word)
-	                  .join(' ')
-	}return correctedStr
