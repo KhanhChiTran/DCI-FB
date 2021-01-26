@@ -75,50 +75,44 @@ console.log(uncensor("*PP*RC*S*", "UEAE"));
 // Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO
 function tickets(peopleInLine) {
   if (peopleInLine[0] != 25) return "NO";
-  if (peopleInLine[1] == 100 || peopleInLine[2] == 100) return "NO";
   let holdCoin = {
-    bank25: 0,
+    bank25: 1,
     bank50: 0,
-    bank100: 0,
   };
-    for (let i = 1; i < peopleInLine.length; i++) {
-        switch (peopleInLine[i]) {
-            case 25:
-                holdCoin["bank25"]++;
-                break;
+  for (let i = 1; i < peopleInLine.length; i++) {
+    switch (peopleInLine[i]) {
+      case 25:
+        holdCoin["bank25"]++;
+        break;
 
-            case 50:
-                holdCoin["bank50"]++;
-                holdCoin["bank25"]--;
-                break;
+      case 50:
+        holdCoin["bank50"]++;
+        holdCoin["bank25"]--;
+        break;
 
-            case 100:
-                holdCoin["bank50"] ? holdCoin["bank50"]-- : (holdCoin["bank25"] -= 2);
-                holdCoin["bank25"]--;
-                break;
+      case 100:
+        holdCoin["bank50"] ? holdCoin["bank50"]-- : (holdCoin["bank25"] -= 2);
+        holdCoin["bank25"]--;
+        break;
 
-            default:
-                break;
-        }
-        if (holdCoin["bank25"] < 0) return 'NO'
+      default:
+        break;
     }
-    return 'YES'
-//     if (peopleInLine[i] === 25) {
-//       holdCoin["25"] += 1;
-//     } else if (peopleInLine[i] == 50) {
-//       holdCoin["50"] += 1;
-//       holdCoin["25"] -= 1;
-//       if (holdCoin["25"] < 0) return "NO";
-//     } else {
-//       if (holdCoin["50"] > 0) {
-//         holdCoin["50"] -= 1;
-//         holdCoin["25"] -= 1;
-//         if (holdCoin["25"] < 0) return "NO";
-//         continue;
-//       }
-//       holdCoin["25"] -= 3;
-//       if (holdCoin["25"] < 0) return "NO";
-//     }
-//   }
-//   return "YES";
-// }
+    if (holdCoin["bank25"] < 0) return "NO";
+  }
+  return "YES";
+  //     if (peopleInLine[i] === 25) {
+  //       holdCoin["25"] += 1;
+  //     } else if (peopleInLine[i] == 50) {
+  //       holdCoin["50"] += 1;
+  //       holdCoin["25"] -= 1;
+  //
+  //     } else {
+  // holdCoin['50'] > 0 ? (holdCoin['50'] -= 1) : (holdCoin['25'] -= 2)
+  // holdCoin["bank25"] -= 1
+  //     }
+  //       if (holdCoin["25"] < 0) return "NO";
+  //   }
+  //   return "YES";
+  // }
+}
