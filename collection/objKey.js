@@ -6,3 +6,6 @@
 // hasKey({ craves: true, midnight: true, snack: true }, "morning") ➞ false
 
 // hasKey({ pot: 1, tot: 2, not: 3 }, "not") ➞ true
+function hasKey(obj, key) {
+  return key in obj;
+}
