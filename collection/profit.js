@@ -13,8 +13,28 @@
 //   inventory: 100
 // }) ➞ 32411
 
-// profit({
-//   costPrice: 2.77,
-//   sellPrice: 7.95,
-//   inventory: 8500
-// }) ➞ 44030
+function profit({ costPrice, sellPrice, inventory }) {
+  return Math.round((sellPrice - costPrice) * inventory);
+}
+console.log(
+  profit({
+    costPrice: 2.77,
+    sellPrice: 7.95,
+    inventory: 8500,
+  })
+); //  ➞ 44030
+
+// using spread
+function chunkArray(array, size) {
+  let result = [];
+  //   Because .splice() element manipulates the array in place (i.e it changes the received array directly), we use the spread operator … to create a copy which we call arrayCopy so that our operations do not affect the data that is received.
+  let arrayCopy = [...array];
+  //   It is from this copy that we continuously extract elements of the specified size using a while loop that will continue to execute for as long as the length of the arrayCopy is greater than 0.
+  while (array.length > 0) {
+    //   Each sub-array created is then added to the result by calling the .push() method
+    result.push(array.splice(0, size));
+  }
+  //   At the end, we return the result which is an array of all the groups(sub-arrays) that were created.
+  return result;
+}
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 5));
