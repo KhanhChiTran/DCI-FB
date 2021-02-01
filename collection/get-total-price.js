@@ -9,23 +9,20 @@
 //   "price": 1.50
 // }
 // ```
-function getTotalPrice(obj) {
-  const [{ product, quantity, price }] = {};
-  let mul = 1;
-  return (mul *= quantity * price);
+function getTotalPrice(arr) {
+  let sum = 0;
+  for (let item of arr) {
+    sum += item.quantity * item.price;
+  }
+  console.log(sum);
+  return sum;
 }
-// ​
-// ## Examples
-// ​
-// ​
-// ```js
+
 // // 1 bottle of milk:
-// getTotalPrice([
-//   { product: "Milk", quantity: 1, price: 1.50 }
-// ]) ➞ 1.5
+getTotalPrice([{ product: "Milk", quantity: 1, price: 1.5 }]); // ➞ 1.5
 // ​
 // // 1 bottle of milk & 1 box of cereals:
-// getTotalPrice([
-//   { product: "Milk", quantity: 1, price: 1.50 },
-//   { product: "Cereals", quantity: 1, price: 2.50 }
-// ]) ➞ 4
+getTotalPrice([
+  { product: "Milk", quantity: 1, price: 1.5 },
+  { product: "Cereals", quantity: 1, price: 2.5 },
+]); // ➞ 4
