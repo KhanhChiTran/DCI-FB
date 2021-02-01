@@ -6,14 +6,10 @@ function firstRepeat(str) {
   for (let char of str) {
     if (str.indexOf(char) !== str.lastIndexOf(char)) {
       result = char;
-      break;
-    } else {
-      result = -1;
     }
   }
-  return result;
+  return result ? result : -1;
 }
-
 // ```js
 console.log(firstRepeat("legolas")); //➞ "l"
 // ​
@@ -27,4 +23,16 @@ console.log(firstRepeat("Isildur")); //➞ "-1"
 // ​
 // ## Notes
 // ​
-// The funtion should be case sensitive.
+//The funtion should be case sensitive.
+function firstRepeat(str) {
+  const obj = {};
+  for (let char of str) {
+    if (obj[char]) {
+      obj[char] = char;
+      break;
+    } else {
+      obj[char] = -1;
+    }
+  }
+  return obj;
+}
