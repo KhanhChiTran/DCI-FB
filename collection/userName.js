@@ -22,19 +22,16 @@ const account4 = {
   interestRate: 1,
   pin: 4444,
 };
-
-function getUserName(obj) {
-  const { owner } = obj;
-  const userName = owner.slice(0, 3).toLowerCase();
-  return {
-    userName,
-    ...obj,
-  };
+const acounts = [account1, account2, account3, account4];
+function getUserName(accounts) {
+  for (const account of accounts) {
+    const { owner } = account;
+    const userName = owner.slice(0, 3).toLowerCase();
+    return {
+      userName,
+      ...account,
+    };
+  }
 }
-const x = getUserName({
-  owner: "Nicholas Cage",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
-  interestRate: 1.2,
-  pin: 1111,
-});
+const x = getUserName(acounts);
 console.log(x);
