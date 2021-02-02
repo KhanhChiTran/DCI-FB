@@ -9,16 +9,12 @@ function checkDogs(dogsJulia, dogsKate) {
   newArr.pop();
   newArr.shift();
   let allDogsArr = [...newArr, ...dogsKate];
-  for (let dog of allDogsArr) {
-    dog >= 3
+  for (let i = 0; i < allDogsArr.length; i++) {
+    allDogsArr[i] >= 3
       ? console.log(
-          `Dog number ${
-            allDogsArr.indexOf(dog) + 1
-          } is an adult, and is ${dog} years old`
+          `Dog number ${i + 1} is an adult, and is ${allDogsArr[i]} years old`
         )
-      : console.log(
-          `Dog number ${allDogsArr.indexOf(dog) + 1} is still a puppy`
-        );
+      : console.log(`Dog number ${i + 1} is still a puppy`);
   }
 }
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);

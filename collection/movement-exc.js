@@ -4,10 +4,10 @@
 // Write a function that prints the total value of all the movements to the console.
 //const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 function printMovements(arr) {
-  for (let movement of arr) {
-    movement > 0
-      ? console.log("Movement X: You deposited X amount")
-      : console.log("Movement X: You withdrew X amount");
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] > 0
+      ? console.log(`Movement ${i + 1}: You deposited ${arr[i]} amount`)
+      : console.log(`Movement ${i + 1}: You withdrew ${arr[i]} amount`);
   }
 }
 printMovements([200, 450, -400, 3000, -650, -130, 70, 1300]);
@@ -19,7 +19,7 @@ function printDeposits(arr) {
       depositedArr.push(movement);
     }
   }
-  return console.log(depositedArr);
+  console.log(depositedArr);
 }
 printDeposits([200, 450, -400, 3000, -650, -130, 70, 1300]);
 
@@ -29,7 +29,7 @@ function convertToUSD(arr) {
   for (let movement of arr) {
     usdArr.push(Math.floor(Math.abs(movement) * rate));
   }
-  return console.log(usdArr);
+  console.log(usdArr);
 }
 convertToUSD([200, 450, -400, 3000, -650, -130, 70, 1300]);
 
@@ -38,6 +38,6 @@ function getTotal(arr) {
   for (let movement of arr) {
     total += movement;
   }
-  return console.log(total);
+  console.log(total);
 }
 getTotal([200, 450, -400, 3000, -650, -130, 70, 1300]);

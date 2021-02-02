@@ -12,13 +12,12 @@
 // ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 function getMembership(arr) {
   let result = [];
-  for (let member of arr) {
-    for (let i = 0; i < member.length; i += 2) {
-      member[i] > 55 && member[i + 1] > 7
+  for (const [age, handicap] of arr) {
+      age > 55 && handicap > 7
         ? result.push("Senior")
         : result.push("Open");
     }
-  }
+
   return result;
 }
 console.log(
