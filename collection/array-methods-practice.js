@@ -211,7 +211,6 @@ console.log(restructure(students, "firstName"));
 const toObj = (arr) => {
   let newObj = {};
   for (var i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
     let key = arr[i].id;
     newObj[key] = arr[i];
   }
