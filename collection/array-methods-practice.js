@@ -190,14 +190,14 @@ const students = [
     grade: 226,
   },
 ];
-//<<<<Solution 1>>>>>
-const obj = (arr) => {
-  return arr.reduce((obj, item) => {
-    obj[item.id] = item;
-    return obj;
-  }, {});
-};
-//<<<<Solution 2>>>>>>>
+
+// const obj = (arr) => {
+//   return arr.reduce((obj, item) => {
+//     obj[item.id] = item;
+//     return obj;
+//   }, {});
+// };
+
 const restructure = (arr, property) => {
   return arr.reduce((obj, acc) => {
     let key = acc[property];
@@ -207,14 +207,15 @@ const restructure = (arr, property) => {
 };
 console.log(restructure(students, "grade"));
 console.log(restructure(students, "firstName"));
-//>>>>>Solution 3<<<<<<<
-const toObj = (arr) => {
-  let newObj = {};
-  for (var i = 0; i < arr.length; i++) {
-    let key = arr[i].id;
-    newObj[key] = arr[i];
-  }
-  return newObj;
-};
+console.log(restructure(students, "id"));
 
-console.log(obj(students));
+// const toObj = (arr) => {
+//   let newObj = {};
+//   for (var i = 0; i < arr.length; i++) {
+//     let key = arr[i].id;
+//     newObj[key] = arr[i];
+//   }
+//   return newObj;
+// };
+
+// console.log(obj(students));

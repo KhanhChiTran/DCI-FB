@@ -61,21 +61,22 @@ const users = [
 const findCompany = (arr, company) => {
   return arr.filter((item) => item.company === company);
 };
-console.log(findCompany(users, "Apple"));
-console.log(findCompany(users, "DCI"));
+// console.log(findCompany(users, "Apple"));
+// console.log(findCompany(users, "DCI"));
 
 const findWeb = (arr, website) => {
   return arr.filter((item) => item["website"].includes(website));
 };
-console.log(findWeb(users, ".de"));
-console.log(findWeb(users, ".info"));
+// console.log(findWeb(users, ".de"));
+// console.log(findWeb(users, ".info"));
 
 const findId = (arr, id) => {
-  return id ? arr.filter((item) => item.id === id) : undefined;
+  let found = arr.filter((item) => item.id === id);
+  return found.length ? found[0] : undefined;
 };
 console.log(findId(users, 5));
 
 const findEmail = (arr, email) => {
   return arr.filter((item) => item.email === email);
 };
-console.log(findEmail(users, "Sincere@april.biz"));
+// console.log(findEmail(users, "Sincere@april.biz"));
