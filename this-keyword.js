@@ -1,64 +1,64 @@
-// let dog = {
-//   dogName: "quick",
-//   sleep() {
-//     return `${this.dogName} is my dog`;
-//   },
-// };
-// console.log(dog.sleep());
+let dog = {
+  dogName: "quick",
+  sleep() {
+    return `${this.dogName} is my dog`;
+  },
+};
+console.log(dog.sleep());
 
-// let meeting = {
-//   day: "Monday",
-//   meetings: 0,
-//   meetingsDone: 0,
-//   addMeeting() {
-//     this.meetings++;
-//   },
-//   removeMeeting() {
-//     if (this.meetings > 0) {
-//       this.meetings--;
-//       this.meetingsDone++;
-//     } else {
-//       return "There is not any meeting at the moment";
-//     }
-//   },
-//   summary() {
-//     return `You have ${this.meetings} meetings today`;
-//   },
-//   completed() {
-//     return `You have completed ${this.meetings} meetings today`;
-//   },
-//   reset() {
-//     this.meetings = 0;
-//     this.meetingsDone = 0;
-//   },
-// };
-// meeting.addMeeting();
-// meeting.addMeeting();
-// meeting.addMeeting();
-// meeting.addMeeting();
-// console.log(meeting.meetings);
+let meeting = {
+  day: "Monday",
+  meetings: 0,
+  meetingsDone: 0,
+  addMeeting() {
+    this.meetings++;
+  },
+  removeMeeting() {
+    if (this.meetings > 0) {
+      this.meetings--;
+      this.meetingsDone++;
+    } else {
+      return "There is not any meeting at the moment";
+    }
+  },
+  summary() {
+    return `You have ${this.meetings} meetings today`;
+  },
+  completed() {
+    return `You have completed ${this.meetings} meetings today`;
+  },
+  reset() {
+    this.meetings = 0;
+    this.meetingsDone = 0;
+  },
+};
+meeting.addMeeting();
+meeting.addMeeting();
+meeting.addMeeting();
+meeting.addMeeting();
+console.log(meeting.meetings);
 
-// meeting.removeMeeting();
-// console.log(meeting.meetings);
-// console.log(meeting.meetingsDone);
+meeting.removeMeeting();
+console.log(meeting.meetings);
+console.log(meeting.meetingsDone);
 
-// let helon = {
-//   firstName: "helon",
-//   sayHi() {
-//     return `Hi ${this.firstName}`;
-//   },
-//   addNumbers(a, b, c, d) {
-//     return `${this.firstName} calculated ${a + b + c + d}`;
-//   },
-// };
-// let nic = {
-//   firstName: "nic",
-// };
-// console.log(helon.sayHi());
-// console.log(helon.addNumbers(1, 2, 3, 4));
-// console.log(helon.addNumbers.call(nic, 1, 2, 3, 4));
-// console.log(helon.addNumbers.apply(nic, [1, 2, 3, 4])); // apply passed an array
-// console.log(helon.sayHi.call(nic));
+let helon = {
+  firstName: "helon",
+  sayHi() {
+    return `Hi ${this.firstName}`;
+  },
+  addNumbers(a, b, c, d) {
+    return `${this.firstName} calculated ${a + b + c + d}`;
+  },
+};
+let nic = {
+  firstName: "nic",
+};
+console.log(helon.sayHi());
+console.log(helon.addNumbers(1, 2, 3, 4));
+console.log(helon.addNumbers.call(nic, 1, 2, 3, 4));
+console.log(helon.addNumbers.apply(nic, [1, 2, 3, 4])); // apply passed an array
+console.log(helon.sayHi.call(nic));
 let obj = {
   fullName: "Harry Potter",
   person: {
