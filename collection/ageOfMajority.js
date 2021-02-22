@@ -28,9 +28,6 @@ function createAgeOfMajorityValidator(country) {
     const birthMonth = Number(birthday.slice(5, 7));
     const birthDay = Number(birthday.slice(8, 10));
     const legalTime = new Date(birthYear, birthMonth - 1, birthDay);
-    const x = new Date() - legalTime;
-    const y = x / (1000 * 60 * 60 * 24);
-    console.log(y);
     return new Date() >= legalTime;
   };
 }
@@ -69,10 +66,43 @@ function isWeekend(year, month, date) {
 
 console.log(isWeekend(2021, 02, 21));
 console.log(isWeekend(2021, 02, 22));
+console.log(isWeekend(1982, 07, 22));
 
+// # Date: future or past?
+// Write two functions: one should tell us if a date has already passed, the other one should tell us if a date is in the future.
+function isPastDate(str) {
+  const split = str.split("-");
+  const year = Number(split[0]);
+  const month = Number(split[1]);
+  const date = Number(split[2]);
+  const givenDate = new Date(year, month - 1, date);
+  return new Date() - givenDate > 24 * 600;
+}
+
+function isFutureDate(str) {
+  const split = str.split("-");
+  const year = Number(split[0]);
+  const month = Number(split[1]);
+  const date = Number(split[2]);
+  const givenDate = new Date(year, month - 1, date);
+  return new Date() - givenDate < 24 * 600;
+}
+
+console.log(isPastDate("2021-02-20")); //-> true
+console.log(isPastDate("2021-02-25")); //-> false
+console.log(isFutureDate("2021-02-25")); //-> true
+console.log(isFutureDate("2021-02-20")); //-> false
+// If the date is today - they date is not in the past and it is not in the future.
+console.log(isPastDate("2021-02-23")); //-> false
+console.log(isFutureDate("2021-02-22")); // -> false
 // # Friday the 13th
 // ​
 // Given the month and year as human readable numbers, return whether that month contains a Friday 13th.
-const assert = require("assert").strict;
-
-assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, "3"]], 4, 5]);
+function hasFriday13(month, year) {
+  const time = new Date(year, month - 1, 13);
+  const weekDay = time.getDay();
+  return weekDay === 5;
+}
+// console.log(hasFriday13(3, 2020)); //➞ true
+// console.log(hasFriday13(10, 2017)); // ➞ true
+// console.log(hasFriday13(1, 1985)); //➞ false
