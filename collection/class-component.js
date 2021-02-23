@@ -102,60 +102,116 @@
 
 // console.log(employee1.getEmailSignature());
 //# 5. Tick Tock
-// const template = "h:m:s";
-// let date = new Date();
-// let hours = date.getHours();
-// if (hours < 10) hours = "0" + hours;
-// let mins = date.getMinutes();
-// if (mins < 10) mins = "0" + mins;
-// let secs = date.getSeconds();
-// if (secs < 10) secs = "0" + secs;
-// let output = template.replace("h", hours).replace("m", mins).replace("s", secs);
-// console.log(output);
-class Template {
-  constructor() {
-    this.date = new Date();
-    this.hours = "";
-    this.mins = "";
-    this.secs = "";
+// // const template = "h:m:s";
+// // let date = new Date();
+// // let hours = date.getHours();
+// // if (hours < 10) hours = "0" + hours;
+// // let mins = date.getMinutes();
+// // if (mins < 10) mins = "0" + mins;
+// // let secs = date.getSeconds();
+// // if (secs < 10) secs = "0" + secs;
+// // let output = template.replace("h", hours).replace("m", mins).replace("s", secs);
+// // console.log(output);
+// class Template {
+//   constructor() {
+//     this.date = new Date();
+//     this.hours = "";
+//     this.mins = "";
+//     this.secs = "";
+//   }
+
+//   getTime() {
+//     this.hours =
+//       this.date.getHours() < 10
+//         ? "0" + this.date.getHours()
+//         : this.date.getHours();
+
+//     this.mins =
+//       this.date.getMinutes() < 10
+//         ? "0" + this.date.getMinutes()
+//         : this.date.getMinutes();
+//     this.secs =
+//       this.date.getSeconds() < 10
+//         ? "0" + this.date.getSeconds()
+//         : this.date.getSeconds();
+
+//     return `${this.hours}:${this.mins}:${this.secs}`;
+//   }
+// }
+
+// const time = new Template();
+// console.log(time.getTime());
+
+// class Time {
+//   constructor(template = "h:m:s") {
+//     this.template = template;
+//   }
+//   getTime() {
+//     const date = new Date();
+//     const hours = date.getHours().toString().padStart(2, "0");
+//     const mins = date.getMinutes().toString().padStart(2, "0");
+//     const secs = date.getSeconds().toString().padStart(2, "0");
+//     return this.template
+//       .replace("h", hours)
+//       .replace("m", mins)
+//       .replace("s", secs);
+//   }
+// }
+// const time1 = new Time();
+// const time2 = new Time("h:m");
+// Create a function which takes an array of instances from the class IceCream and returns the sweetness value of the sweetest icecream.
+// Sweetness is calculated from the flavor and number of sprinkles. Each sprinkle has a sweetness value of 1, and the sweetness values for the flavors are as follows
+class IceCream {
+  constructor(flavor, sprinkle) {
+    const flavors = {
+      Plain: 0,
+      Vanilla: 5,
+      ChocolateChip: 5,
+      Strawberry: 10,
+      Chocolate: 10,
+    };
+    this.flavor = flavors[flavor];
+    this.sprinkle = sprinkle;
   }
-
-  getTime() {
-    this.hours =
-      this.date.getHours() < 10
-        ? "0" + this.date.getHours()
-        : this.date.getHours();
-
-    this.mins =
-      this.date.getMinutes() < 10
-        ? "0" + this.date.getMinutes()
-        : this.date.getMinutes();
-    this.secs =
-      this.date.getSeconds() < 10
-        ? "0" + this.date.getSeconds()
-        : this.date.getSeconds();
-
-    return `${this.hours}:${this.mins}:${this.secs}`;
+  getSweet() {
+    return this.flavor + this.sprinkle;
   }
 }
 
-const time = new Template();
-console.log(time.getTime());
+const ice1 = new IceCream("Chocolate", 13); // value of 23
+const ice2 = new IceCream("Vanilla", 0); // value of 5
+const ice3 = new IceCream("Strawberry", 7); // value of 17
+const ice4 = new IceCream("Plain", 18); // value of 18
+const ice5 = new IceCream("ChocolateChip", 3); // value of 8
+sweetestIcecream = (ices) => {
+  let arr = [];
+  for (let ice of ices) {
+    arr = [...arr, ice.getSweet()];
+  }
+  return Math.max(...arr);
+};
+console.log(sweetestIcecream([ice1, ice2, ice3, ice4, ice5]));
+console.log(sweetestIcecream([ice3, ice5]));
 
-class Time {
-  constructor(template = "h:m:s") {
-    this.template = template;
-  }
-  getTime() {
-    const date = new Date();
-    const hours = date.getHours().toString().padStart(2, "0");
-    const mins = date.getMinutes().toString().padStart(2, "0");
-    const secs = date.getSeconds().toString().padStart(2, "0");
-    return this.template
-      .replace("h", hours)
-      .replace("m", mins)
-      .replace("s", secs);
-  }
-}
-const time1 = new Time();
-const time2 = new Time("h:m");
+// Write a function that takes time t1 and time t2 and returns the numbers of hours passed between the two times.
+const hoursPassed = (t1, t2) => {
+  const time1 = t1.split(":00 ");
+  const time2 = t2.split(":00 ");
+
+  const startHour =
+    time1[1] === "PM" ? Number(time1[0]) + 12 : Number(time1[0]);
+
+  const endHour = time2[1] === "PM" ? Number(time2[0]) + 12 : Number(time2[0]);
+
+  const numberOfHours = endHour - startHour;
+
+  return numberOfHours > 0 ? `${numberOfHours} hours` : "No time has passed.";
+};
+// Examples
+console.log(hoursPassed("3:00 AM", "9:00 AM")); //➞ "6 hours"
+console.log(hoursPassed("2:00 PM", "4:00 PM")); // ➞ "2 hours"
+console.log(hoursPassed("1:00 AM", "3:00 PM")); // ➞ "14 hours"
+console.log(hoursPassed("3:00 PM", "3:00 PM")); // ➞ "No time has passed"
+// Notes
+// Time t1 will always be the starting time and t2, the ending time.
+// Return the string "No time has passed." if t1 is equal to t2.

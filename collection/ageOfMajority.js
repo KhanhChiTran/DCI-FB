@@ -106,33 +106,7 @@
 // console.log(hasFriday13(3, 2020)); //➞ true
 // console.log(hasFriday13(10, 2017)); // ➞ true
 // console.log(hasFriday13(1, 1985)); //➞ false
-// var lastDigit = function (str1, str2) {
-//   const getLastNumber = (num) => {
-//     let x = num.split("");
-//     return Number(x[x.length - 1]);
-//   };
-//   let lastNumStr1 = getLastNumber(str1);
-//   let lastNumStr2 = getLastNumber(str2);
-//   let num2 = Number(str2);
-//   let temp = 1;
 
-//   switch (lastNumStr1) {
-//     case 5:
-//     case 1:
-//     case 6:
-//     case 0:
-//       return lastNumStr1;
-
-//     default:
-//       return 4;
-//   }
-
-//   while (num2 > 0) {
-//     temp = getLastNumber(Math.pow(lastNumStr1, 2).toString());
-//     num2--;
-//   }
-//   return temp;
-// };
 // const formatCur = (value, locale, currency) =>
 //   new Intl.NumberFormat(locale, {
 //     style: "currency",
@@ -233,3 +207,43 @@ const hoursPassed = (t1, t2) =>
     : `${convertTime(t2) - convertTime(t1)} hours`;
 
 console.log(hoursPassed("1:00 AM", "3:00 PM"));
+
+const account1 = {
+  owner: "Helon Roop",
+  movements: [5000, 3400, -150, -790, -3210, 6000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+  movementsDates: [
+    "2019-11-01T13:15:33.035Z",
+    "2019-11-30T09:48:16.867Z",
+    "2019-12-25T06:04:23.907Z",
+    "2020-01-25T14:18:46.235Z",
+    "2020-02-05T16:33:06.386Z",
+    "2020-04-10T14:43:26.374Z",
+    "2020-06-25T18:49:59.371Z",
+    "2020-07-26T12:01:20.894Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
+};
+function showMovements(acc) {
+  let arr = [];
+  acc.movements.forEach((item, index) =>
+    arr.push({
+      id: Date.now(),
+      type: item > 0 ? "deposit" : "withdrawal",
+      date: acc.movementsDates[index],
+      displayDate: new Intl.DateTimeFormat(acc.locale).format(
+        new Date(acc.movementsDates[index])
+      ),
+      formattedMov: new Intl.NumberFormat(acc.locale, {
+        style: "currency",
+        currency: acc.currency,
+      }).format(item),
+    })
+  );
+  return arr;
+}
+console.log(showMovements(account1));
+
+console.log(34329582537592357295725934343453353 % 4);
