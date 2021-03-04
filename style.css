@@ -1,0 +1,9 @@
+.item-name {
+  display: block;
+  padding: 1rem;
+  font-size: 1.3rem;
+  list-style: none;
+  border: 1px solid red;
+  color: aqua;
+  text-align: center;
+}

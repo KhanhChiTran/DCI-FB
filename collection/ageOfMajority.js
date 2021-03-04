@@ -195,9 +195,6 @@ console.log(sweetestIcecream([ice3, ice1]));
 console.log(sweetestIcecream([ice3, ice5]));
 
 const convertTime = (str) => {
-  //   if (!str.includes("AM") || !str.includes("PM") || !str.includes(":")) {
-  //     throw new Error("Syntax is not correct");
-  //   }
   let arr = str.split(":");
   return str.includes("AM") ? Number(arr[0]) : Number(arr[0]) + 12;
 };
